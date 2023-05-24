@@ -129,3 +129,41 @@ mov ebx, sizeof arrvalue
 
 mov edi, offset arrMes
 
+;Tabla
+
+	push offset msg2	
+	call printf		
+
+
+label2:
+
+	mov eax, [esi]							 ; DIRECCIONAM. INDIRECTO: Cargar el valor del i-esimo elem de array a eax
+	push eax								 ; Pasar valor a pila p/imprimir Facturado
+	
+	mov edx, 0
+	mov ecx, divisor
+	div ecx
+	mov IVA, eax
+	push IVA; IVA
+
+	push NIT
+	
+	mov eax, edi
+	push edi
+
+	push offset fmtPrueba					; Pasar formato
+	call printf
+
+	sub ebx, 4								; Decrementar "contador"
+	add esi, 4								; Moverse al sig. elem. del array
+	add edi, 6
+	cmp ebx,0								; Aún hay elementos en el array?
+	jne label2								; Sí, entonces repetir proceso desde label1
+
+
+salir:
+	push 0                    
+    call exit                  
+
+main endp
+end
