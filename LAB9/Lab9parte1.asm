@@ -36,3 +36,21 @@ ExitProcess proto,dwExitCode:dword ;
 	msgE db " ", 0ah, 0
 	msg2 db "|  MES  |    NIT   |  IVA  | FACTURADO | ",0AH, 0
 	msgx BYTE 'Monto facturado del mes: ', 0Ah,0
+Variables	
+	divisor dword 20
+	suma dword 0
+	Total dword 0
+	NIT dword 0
+	IVA dword 0
+
+.code ; Sección de código
+;Librerias
+
+    includelib libucrt.lib ; 
+    includelib legacy_stdio_definitions.lib ; 
+    includelib libcmt.lib ; 
+    includelib libvcruntime.lib ; 
+
+	extrn printf:near
+	extrn scanf:near
+	extrn exit:near
