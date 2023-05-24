@@ -28,4 +28,11 @@ ExitProcess proto,dwExitCode:dword ;
 	dato1 db "%d", 0
 	fmt db "%d ", 0AH,0
 	fmtPrueba BYTE "| %s | %d  | %d  |   %d   |", 0Ah, 0
-
+;Mensajes
+	msgTrue BYTE 'Cambiar de regimen a IVA general', 0Ah, 0
+	msgFalse BYTE 'Sigue siendo pequenio contribuyente', 0Ah, 0
+	msg_in byte "Ingresar monto facturado: ",0Ah, 0
+	msg_inNIT byte "Ingresar el NIT con el que facturara: ", 0
+	msgE db " ", 0ah, 0
+	msg2 db "|  MES  |    NIT   |  IVA  | FACTURADO | ",0AH, 0
+	msgx BYTE 'Monto facturado del mes: ', 0Ah,0
