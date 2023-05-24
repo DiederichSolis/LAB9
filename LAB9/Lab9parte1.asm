@@ -29,6 +29,8 @@ ExitProcess proto,dwExitCode:dword ;
 	fmt db "%d ", 0AH,0
 	fmtPrueba BYTE "| %s | %d  | %d  |   %d   |", 0Ah, 0
 
+
+
 ;Mensajes
 	msgTrue BYTE 'Cambiar de regimen a IVA general', 0Ah, 0
 	msgFalse BYTE 'Sigue siendo pequenio contribuyente', 0Ah, 0
@@ -38,15 +40,20 @@ ExitProcess proto,dwExitCode:dword ;
 	msg2 db "|  MES  |    NIT   |  IVA  | FACTURADO | ",0AH, 0
 	msgx BYTE 'Monto facturado del mes: ', 0Ah,0
 
+
 ;Variables	
+	
+
 	divisor dword 20
 	suma dword 0
 	Total dword 0
 	NIT dword 0
 	IVA dword 0
 
+
 .code ; Sección de código
 
+.code ; 
 ;Librerias
 
     includelib libucrt.lib ; 
@@ -57,6 +64,7 @@ ExitProcess proto,dwExitCode:dword ;
 	extrn printf:near
 	extrn scanf:near
 	extrn exit:near
+
 
 public main 
 main proc 
@@ -83,3 +91,4 @@ main proc
 
 	push offset msg_in						; Coloca la direc. de la cadena de caracteres en la pila
 	call printf								; Imprimir mensaje para ingreso de dato
+
