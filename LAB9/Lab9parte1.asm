@@ -22,5 +22,10 @@ ExitProcess proto,dwExitCode:dword ;
 ;Arreglos
 	arrvalue dword 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	arrIva dword 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	arrMes BYTE 'Enero',0,'Febrero',0,'Marzo',0,'Abril',0,'Mayo',0,'Junio',0,'Julio',0,'Agosto',0,'Septiembre',0,'Octubre',0,'Noviembre',0,'Diciembre',0
+	arrMes BYTE 'Ene23',0,'Feb23',0,'Mar23',0,'Abr23',0,'May23',0,'Jun23',0,'Jul23',0,'Ago23',0,'Sep23',0,'Oct23',0,'Nov23',0,'Dic23',0
+
+;Formatos
+	dato1 db "%d", 0
+	fmt db "%d ", 0AH,0
+	fmtPrueba BYTE "| %s | %d  | %d  |   %d   |", 0Ah, 0
 
