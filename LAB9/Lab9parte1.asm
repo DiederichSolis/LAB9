@@ -51,7 +51,7 @@ ExitProcess proto,dwExitCode:dword ;
 	IVA dword 0
 
 
-.code ; Secci髇 de c骴igo
+.code ; Secci贸n de c贸digo
 
 .code ; 
 ;Librerias
@@ -76,14 +76,14 @@ main proc
 	call printf								; Imprimir mensaje para ingreso de dato
 
 	add esp, 4								; Limpia la pila
-	lea eax, [ebp-4]						; Obtiene la direcci髇 de la variable local
-	push eax								; Pone la direcci髇 en la pila
-	push offset dato1						; Pone la direcci髇 de la cadena de formato en la pila
-	call scanf								; Llama a la funci髇 scanf para leer el n鷐ero ingresado
+	lea eax, [ebp-4]						; Obtiene la direcci贸n de la variable local
+	push eax								; Pone la direcci贸n en la pila
+	push offset dato1						; Pone la direcci贸n de la cadena de formato en la pila
+	call scanf								; Llama a la funci贸n scanf para leer el n煤mero ingresado
 	add esp, 8								; Limpia la pila
-	mov eax, [ebp-4]						; Mueve el n鷐ero ingresado a eax
+	mov eax, [ebp-4]						; Mueve el n煤mero ingresado a eax
 	mov NIT, eax
-	push eax								; Pone el n鷐ero en la pila
+	push eax								; Pone el n煤mero en la pila
 
 	push offset msgE					; Coloca la direc. de la cadena de caracteres en la pila
 	call printf								; Imprimir mensaje para ingreso de dato
@@ -91,4 +91,41 @@ main proc
 
 	push offset msg_in						; Coloca la direc. de la cadena de caracteres en la pila
 	call printf								; Imprimir mensaje para ingreso de dato
+	
+	label1: 
+
+	push offset msgx		 ; Coloca la direc. de la cadena de caracteres en la pila
+	call printf	
+
+	lea eax, [ebx]							; Obtiene la direcci贸n de la variable local
+	push eax								; Pone la direcci贸n en la pila
+	push offset fmt							; Pone la direcci贸n de la cadena de formato en la pila
+	add Total, eax
+	call scanf								; Llama a la funci贸n scanf para leer el n煤mero ingresado
+
+	add ebx, 4 
+	sub esi, 4
+	cmp esi, 0
+	JNE label1
+
+	push offset msgE
+	call printf 
+
+	.IF Total > 150000
+		push offset msgTrue
+		call printf
+
+	.ELSE 
+		push offset msgFalse
+		call printf
+
+	.ENDIF
+
+	push offset msgE
+	call printf  
+	
+mov esi, offset arrvalue
+mov ebx, sizeof arrvalue
+
+mov edi, offset arrMes
 
